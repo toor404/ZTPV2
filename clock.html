@@ -1,0 +1,34 @@
+<html>
+<head>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+$(document).ready(function(){
+	displayClock();
+});
+
+function displayClock(){
+	var d=new Date();
+	var zone=d.toString().match(/([\+-][0-9]+)\s/)[1];
+	$("#zone").text('('+zone+')');
+	var tgl=months[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
+	$("#tgl").text(tgl);
+	var jam=d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+	$("#jam").text(jam);
+	
+	
+	setTimeout(displayClock,1000);
+}
+
+</script>
+</head>
+<body>
+
+<div id="tgl"></div>
+<div id="jam"></div>
+<div id="zone"></div>
+
+</body>
+</html>
